@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><?php echo NAME;?>后台登录 - By Jewel_M</title>
+<!--<link rel="stylesheet" href="//dn-qqtiyu.qbox.me/manage/login.css">-->
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/tooltipster/3.0.5/css/tooltipster.min.css">
+<script type="text/javascript" src="<?php echo RES;?>jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/tooltipster/3.0.5/js/jquery.tooltipster.min.js"></script>
+<style type="text/css">
+*{ margin:0; padding:0; outline:0; -webkit-font-smoothing:antialiased;}
+body{font-family:arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif; background:#f7f7f7;font-size:14px;}
+a{color:#0e90d2; text-decoration:none;}
+a:hover{ color:#0c79b1;}
+.login{width:360px;height:auto;background:#FFF;box-shadow:0 0 10px #ddd; border:1px solid #dedede; border-radius:5px; margin:10% auto 0 auto;-webkit-animation: scaleout 0.5s 1 ease-in-out;animation: scaleout 0.5s 1 ease-in-out;}
+.logo{ text-align:center; padding:20px 0 15px 0;}
+.logo a{ display:block;}
+.form{ padding:0 30px;}
+.input-line{height:36px; line-height:36px; margin-bottom:15px;border-radius:3px; position:relative;}
+.input-line input{ width:100%; text-indent:30px; height:36px; font-size:14px;border:none;border-radius:3px;border:solid 1px #ddd;-webkit-appearance:none;-webkit-transition:border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+.input-line input:focus{ border:1px solid #3bb4f2;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 5px rgba(59,180,242,.3);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 5px rgba(59,180,242,.3)}
+.input-line i{ position:absolute; left:10px; top:12px; color:#999;}
+.button-line{ height:36px; margin-bottom:20px;line-height:36px;}
+.submit-button{ padding:0 25px; font-size:15px; height:34px; line-height:34px; background:#0e90d2; border:1px solid #0e90d2; color:#FFF;border-radius:3px;-webkit-appearance:none;-webkit-transition:border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out; cursor:pointer;}
+.submit-button:hover{background:#0c79b1;border:1px solid #0a6999}
+.button-line a{ float:right;}
+.button-line a i{ font-size:15px}
+.bottom{line-height:32px;background:#fafafa; border-top:1px solid #f4f4f4; text-align:center; padding:0 10px; font-size:12px;border-radius:0 0 3px 3px;}
+@-webkit-keyframes scaleout {
+	0% {
+		-webkit-transform: scale(0.0);
+		opacity:0.3;
+	} 100% {
+		-webkit-transform: scale(1.0);
+		opacity:1;
+	}
+}
+@keyframes scaleout {
+	0% {
+		transform: scale(0.0);
+		-webkit-transform: scale(0.0);
+		opacity:0.3;
+	} 100% {
+		transform: scale(1.0);
+		-webkit-transform: scale(1.0);
+		opacity:1;
+	}
+}
+</style>
+</head>
+<body>
+<div class="login">
+  <div class="logo"><a href="<?php echo BASE;?>" title="回到首页" rel="tips"><img src="http://ww3.sinaimg.cn/large/a39ca5d8jw1epqoitjke6g208c03cwed.gif" width="150" /></a></div>
+  <div class="form">
+    <form action="?m=<?php echo ADMIN_M;?>&c=login&a=ok" name="form-user" method="post">
+    <div class="input-line"><input name="user[name]" placeholder="请输入账号" type="text" value=""><i class="fa fa-user"></i></div>
+    <div class="input-line"><input name="user[pass]" placeholder="请输入密码" type="password" value=""><i class="fa fa-key"></i></div>
+    <div class="button-line"><a href="javascript:;" rel="tips" title="真没见过你这么笨的人！联系技术人员吧！"><i class="fa fa-question-circle"></i> 忘记密码？</a><input type="submit" class="submit-button" value="登录"></div>
+    </form>
+  </div>
+  <div class="bottom"><a href="<?php echo BASE;?>"><i class="fa fa-share-square"></i> 回到<?php echo NAME;?></a></div>
+</div>
+<script>
+$('*[rel=tips]').tooltipster({animation:'grow',});
+</script>
+</body>
+</html>
