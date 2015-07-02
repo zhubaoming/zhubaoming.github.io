@@ -1,14 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=0">
-<title><?php echo NAME;?>后台登录 - By Jewel_M</title>
-<!--<link rel="stylesheet" href="//dn-qqtiyu.qbox.me/manage/login.css">-->
+<title>QQ体育网后台登录 - By Jewel_M</title>
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="//cdn.bootcss.com/tooltipster/3.0.5/css/tooltipster.min.css">
-<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="//libs.baidu.com/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.bootcss.com/tooltipster/3.0.5/js/jquery.tooltipster.min.js"></script>
 <style type="text/css">
 *{ margin:0; padding:0; outline:0; -webkit-font-smoothing:antialiased;}
@@ -53,15 +53,15 @@ a:hover{ color:#0c79b1;}
 </head>
 <body>
 <div class="login">
-  <div class="logo"><a href="<?php echo BASE;?>" title="回到首页" rel="tips"><img src="http://ww3.sinaimg.cn/large/a39ca5d8jw1epqoitjke6g208c03cwed.gif" width="150" /></a></div>
+  <div class="logo"><a href="http://www.qqtiyu.jw/" title="回到首页" rel="tips"><img src="http://ww3.sinaimg.cn/large/a39ca5d8jw1epqoitjke6g208c03cwed.gif" width="150" /></a></div>
   <div class="form">
-    <form action="?m=<?php echo ADMIN_M;?>&c=login&a=ok" name="form-user" method="post">
+    <form action="?m=manage&c=login&a=ok" name="form-user" method="post">
     <div class="input-line"><input name="user[name]" placeholder="请输入账号" type="text" value=""><i class="fa fa-user"></i></div>
     <div class="input-line"><input name="user[pass]" placeholder="请输入密码" type="password" value=""><i class="fa fa-key"></i></div>
     <div class="button-line"><a href="javascript:;" rel="tips" title="真没见过你这么笨的人！联系技术人员吧！"><i class="fa fa-question-circle"></i> 忘记密码？</a><input type="submit" class="submit-button" value="登录"></div>
     </form>
   </div>
-  <div class="bottom"><a href="<?php echo BASE;?>"><i class="fa fa-share-square"></i> 回到<?php echo NAME;?></a></div>
+  <div class="bottom"><a href="http://www.qqtiyu.jw/"><i class="fa fa-share-square"></i> 回到QQ体育网</a></div>
 </div>
 <script>
 $('*[rel=tips]').tooltipster({animation:'grow',});
