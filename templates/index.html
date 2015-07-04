@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=0">
+<title>QQ体育网管理后台 - By Jewel_M</title>
+<style type="text/css">
+*{ margin:0; padding:0; outline:0; -webkit-font-smoothing:antialiased;}
+body{font-family:arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif; background:#333; font-size:12px; overflow:hidden;}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display: block;}
+a{color:#ccc; text-decoration:none;}
+a:hover{ color:#fff;}
+li{list-style:none;}
+header{ width:100%; height:32px;}
+header li{ height:32px; line-height:32px; float:left;}
+header li a{ padding:0 15px; float:left; display:block;}
+header li a:hover{ background:#444;}
+header li a.on{ background:#555; color:#fff;}
+nav{ width:40px; float:left;}
+nav a{ width:100%; height:auto!important; display:inline-block; text-align:center; padding:10px 0;}
+nav a i{ width:100%; display:block;font-size:1.2em!important;}
+nav a:hover{ background:#444;}
+nav a.on{ background:#555; color:#fff;}
+aside{ width:139px; float:left; background:#e1e1e1; font-size:13px; border-right:1px solid #ccc;}
+aside h3{ padding:20px 15px 10px 15px; font-size:16px; color:#333; font-weight:normal;}
+aside ul { padding-bottom:10px; border-bottom:1px solid #ccc;}
+aside ul li{}
+aside ul li a{ padding:8px 15px; display:block; color:#333; line-height:18px;}
+aside ul li a:hover{ background:#d8d8d8; color:#222;}
+aside ul li a.on{ background:#cdcdcd; color:#111;}
+section{float:right; background:#f7f7f7;}
+</style>
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/tooltipster/3.0.5/js/jquery.tooltipster.min.js"></script>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script><![endif]-->
+</head>
+<body>
+<header>
+<ul>
+  <li><a href=""><i class="fa fa-home"></i> QQ体育网</a></li>
+  <li><a href=""><i class="fa fa-list-ul"></i> 今日直播</a></li>
+  <li><a href=""><i class="fa fa-sitemap"></i> 数据采集</a></li>
+  <li><a href=""><i class="fa fa-trash"></i> 缓存清理</a></li>
+</ul>
+</header>
+<nav>
+<a href=""><i class="fa fa-dashboard"></i>设置</a>
+<a href="" class="on"><i class="fa fa-server"></i>直播</a>
+<a href=""><i class="fa fa-youtube-play"></i>视频</a>
+<a href=""><i class="fa fa-newspaper-o"></i>新闻</a>
+<a href=""><i class="fa fa-folder-open-o"></i>数据</a>
+<a href=""><i class="fa fa-image"></i>图片</a>
+</nav>
+<aside>
+  <h3>赛程</h3>
+  <ul>
+    <li><a href="" class="on"><i class="fa fa-list-ul"></i> 赛程列表</a></li>
+    <li><a href=""><i class="fa fa-pencil-square-o"></i> 添加赛程</a></li>
+    <li><a href=""><i class="fa fa-list-ul"></i> 赛程列表</a></li>
+    <li><a href=""><i class="fa fa-pencil-square-o"></i> 管理友情链接</a></li>
+  </ul>
+  <h3>赛程</h3>
+  <ul>
+    <li><a href=""><i class="fa fa-list-ul"></i> 赛程列表</a></li>
+    <li><a href=""><i class="fa fa-pencil-square-o"></i> 添加赛程</a></li>
+    <li><a href=""><i class="fa fa-list-ul"></i> 赛程列表</a></li>
+    <li><a href=""><i class="fa fa-pencil-square-o"></i> 管理友情链接</a></li>
+  </ul>
+</aside>
+<section>
+
+</section>
+<div style="clear:both"></div>
+<script>
+init();
+function init(){
+	var h = $(window).height();
+	var w = $(window).width();
+	$('nav').css('height', h-32);
+	$('aside').css('height', h-32);
+	$('section').css('height', h-32);
+	$('section').css('width', w-180);
+}
+</script>
+</body>
+</html>
