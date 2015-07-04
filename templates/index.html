@@ -13,49 +13,29 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 a{color:#ccc; text-decoration:none; transition:0.3s linear;-webkit-transition:0.4s linear;-moz-transition:0.4s linear;-o-transition:0.4s linear;}
 a:hover{ color:#fff;}
 li{list-style:none;}
-header{ width:100%; height:32px;}
+header{ width:100%; height:32px; position:fixed; left:0; top:0; z-index:999;}
 header li{ height:32px; line-height:32px; float:left; position:relative;}
 header li>a{ padding:0 15px; float:left; display:block;}
 header li>a:hover{ background:#444;}
 header li>a.on{ background:#555; color:#fff;}
-header li.dent{ width:40px;font-size:15px; -webkit-animation: scaleout 0.8s 3 ease-in-out;animation: scaleout 0.8s 3 ease-in-out;}
+header li.dent{ width:40px;font-size:15px;}
 header li.dent>a{ padding:0; width:40px; height:32px; text-align:center; line-height:32px;background:#222; color:#fff;}
 header li div{ width:160px;padding:5px 10px; line-height:22px; background:#555; position:absolute; color:#fff; top:32px;font-size:12px; display:none;box-shadow: 0 3px 5px rgba(0,0,0,.2); z-index:999; text-shadow:0 1px 0 #000;}
 header li div a{ color:#eee;}
 header li div a:hover{ color:#ff0;}
-nav{ width:40px; float:left;}
+nav{ width:40px; position:fixed; left:0; top:32px; z-index:888;}
 nav a{ width:100%; height:auto!important; display:inline-block; text-align:center; padding:8px 0; line-height:18px;}
 nav a i{ width:100%; display:block;font-size:1.2em!important;}
 nav a:hover{ background:#444;}
 nav a.on{ background:#555; color:#fff;}
-aside{ width:139px; float:left; background:#e1e1e1; font-size:13px; border-right:1px solid #ccc; overflow:hidden;}
+aside{ width:139px; position:fixed; left:40px; top:32px; background:#e1e1e1; font-size:13px; border-right:1px solid #ccc; overflow:hidden; z-index:777;}
 aside h3{ padding:20px 15px 10px 15px; font-size:16px; color:#333; font-weight:normal;}
 aside ul { padding-bottom:10px; border-bottom:1px solid #ccc;}
 aside ul li{}
 aside ul li a{ padding:8px 15px; display:block; color:#333; line-height:18px;}
 aside ul li a:hover{ background:#d3d3d3; color:#222;}
 aside ul li a.on{ background:#c9c9c9; color:#111;}
-section{float:right; background:#f7f7f7;}
-@-webkit-keyframes scaleout {
-	0% {
-		-webkit-transform: scale(0.0);
-		opacity:0.3;
-	} 100% {
-		-webkit-transform: scale(1.0);
-		opacity:1;
-	}
-}
-@keyframes scaleout {
-	0% {
-		transform: scale(0.0);
-		-webkit-transform: scale(0.0);
-		opacity:0.3;
-	} 100% {
-		transform: scale(1.0);
-		-webkit-transform: scale(1.0);
-		opacity:1;
-	}
-}
+section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;}
 </style>
 <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
@@ -150,13 +130,12 @@ section{float:right; background:#f7f7f7;}
 </section>
 <div style="clear:both"></div>
 <script>
+var isAside = 1;
 init();
 function init(){
 	var h = $(window).height();
 	var w = $(window).width();
-	alert(w+' -- '+h);
-	var asideW = $('aside').width();
-	var sectionW = asideW ? (w-180) : (w-40)
+	var sectionW = isAside ? (w-180) : (w-40);
 	$('nav').css('height', h-32);
 	$('aside').css('height', h-32);
 	$('section').css('height', h-32);
@@ -164,15 +143,16 @@ function init(){
 	$('iframe').css('height', h-32);
 }
 function asides(obj){
-	var asideW = $('aside').width();
-	if(asideW){
-		$('aside').animate({width: '0px', opacity: 0, marginLeft: '-1px'}, 300);
-		$('section').animate({width: '+=140px'}, 300);
+	if(isAside){
+		$('aside').animate({left: '-140px', opacity: 0}, 300);
+		$('section').animate({width: '+=140px', left: '40px'}, 200);
 		$(obj).html('<i class="fa fa-indent"></i>');
+		isAside = 0;
 	} else {
-		$('aside').animate({width: '139px', opacity: 1, marginLeft: '0px'}, 300);
-		$('section').animate({width: '-=140px'}, 300);
+		$('aside').animate({left: '40px', opacity: 1}, 200);
+		$('section').animate({width: '-=140px', left: '180px'}, 300);
 		$(obj).html('<i class="fa fa-dedent"></i>');
+		isAside = 1;
 	}
 }
 //顶部导航
