@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=0">
-<title>QQ体育网管理后台 - By Jewel_M</title>
+<title><?php echo NAME;?>管理后台 - By Jewel_M</title>
 <style type="text/css">
 *{ margin:0; padding:0; outline:0; -webkit-font-smoothing:antialiased;}
 body{font-family:arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif; background:#333; font-size:12px; overflow:hidden;}
@@ -36,6 +35,14 @@ aside ul li a{ padding:8px 15px; display:block; color:#333; line-height:18px;}
 aside ul li a:hover{ background:#d3d3d3; color:#222;}
 aside ul li a.on{ background:#c9c9c9; color:#111;}
 section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;}
+@media (max-width: 550px) {
+	header{ overflow:hidden;}
+	header li>a{ padding:0 10px;}
+	
+	nav{ left:-40px;}
+	aside{ left:-180px;}
+	section{ left:0;}
+}
 </style>
 <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
@@ -53,7 +60,7 @@ section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;}
       </div>
     </li>
   <li class="dent"><a href="javascript:;" onClick="asides(this);"><i class="fa fa-dedent"></i></a></li>
-  <li><a href=""><i class="fa fa-home"></i> QQ体育网</a></li>
+  <li><a href=""><i class="fa fa-home"></i> <?php echo NAME;?></a></li>
   <li><a href=""><i class="fa fa-list-ul"></i> 今日直播</a></li>
   <li><a href=""><i class="fa fa-sitemap"></i> 数据采集</a></li>
   <li><a href=""><i class="fa fa-trash"></i> 缓存清理</a></li>
@@ -135,13 +142,12 @@ var winW = $(window).width();
 var winH = $(window).height();
 init();
 function init(){
-	var sectionW = isAside ? (winW-180) : (winW-40);
+	var sectionW = (winW < 550) ? '100%' : (isAside ? (winW-180) : (winW-40));
 	$('nav').css('height', winH-32);
 	$('aside').css('height', winH-32);
 	$('section').css('height', winH-32);
 	$('section').css('width', sectionW);
 	$('iframe').css('height', winH-32);
-	headerScroll();
 }
 function asides(obj){
 	if(isAside){
@@ -154,14 +160,6 @@ function asides(obj){
 		$('section').animate({width: '-=140px', left: '180px'}, 300);
 		$(obj).html('<i class="fa fa-dedent"></i>');
 		isAside = 1;
-	}
-}
-function headerScroll(){
-	if(winW <= 550) {
-		$("header").css('width', 550);
-		$("header").niceScroll({cursoropacitymax:0.3, cursorborder:0, touchbehavior:true, horizrailenabled:true});
-	} else {
-		$("header").css('width', '100%');
 	}
 }
 //顶部导航
