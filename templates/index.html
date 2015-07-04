@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=0">
-<title>QQ体育网管理后台 - By Jewel_M</title>
+<title><?php echo NAME;?>管理后台 - By Jewel_M</title>
 <style type="text/css">
 *{ margin:0; padding:0; outline:0; -webkit-font-smoothing:antialiased;}
 body{font-family:arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif; background:#333; font-size:12px; overflow:hidden;}
@@ -21,8 +20,8 @@ header li a.on{ background:#555; color:#fff;}
 header li.dent{ width:40px;font-size:15px}
 header li.dent a{ padding:0; width:40px; height:32px; text-align:center; line-height:32px;background:#222; color:#fff;}
 nav{ width:40px; float:left;}
-nav a{ width:100%; height:auto!important; display:inline-block; text-align:center; padding:10px 0;}
-nav a i{ width:100%; display:block;font-size:1.2em!important;_padding-bottom:3px;}
+nav a{ width:100%; height:auto!important; display:inline-block; text-align:center; padding:10px 0; line-height:18px;}
+nav a i{ width:100%; display:block;font-size:1.2em!important;}
 nav a:hover{ background:#444;}
 nav a.on{ background:#555; color:#fff;}
 aside{ width:139px; float:left; background:#e1e1e1; font-size:13px; border-right:1px solid #ccc; overflow:hidden;}
@@ -43,7 +42,7 @@ section{float:right; background:#f7f7f7;}
 <header>
 <ul>
   <li class="dent"><a href="javascript:;" onClick="asides(this);"><i class="fa fa-dedent"></i></a></li>
-  <li><a href=""><i class="fa fa-home"></i> QQ体育网</a></li>
+  <li><a href=""><i class="fa fa-home"></i> <?php echo NAME;?></a></li>
   <li><a href=""><i class="fa fa-list-ul"></i> 今日直播</a></li>
   <li><a href=""><i class="fa fa-sitemap"></i> 数据采集</a></li>
   <li><a href=""><i class="fa fa-trash"></i> 缓存清理</a></li>
@@ -144,7 +143,7 @@ function asides(obj){
 		$(obj).html('<i class="fa fa-dedent"></i>');
 	}
 }
-$("aside").niceScroll({cursoropacitymax:0.3, cursorborder:0, cursorborderradius:3, mousescrollstep:60});
+$("aside").niceScroll({cursoropacitymax:0.3, cursorborder:0});
 window.onresize=function(){init();}
 </script>
 </body>
