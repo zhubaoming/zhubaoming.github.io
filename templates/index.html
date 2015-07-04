@@ -10,7 +10,7 @@
 *{ margin:0; padding:0; outline:0; -webkit-font-smoothing:antialiased;}
 body{font-family:arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif; background:#333; font-size:12px; overflow:hidden;}
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display: block;}
-a{color:#ccc; text-decoration:none;}
+a{color:#ccc; text-decoration:none; transition:0.3s linear;-webkit-transition:0.4s linear;-moz-transition:0.4s linear;-o-transition:0.4s linear;}
 a:hover{ color:#fff;}
 li{list-style:none;}
 header{ width:100%; height:32px;}
@@ -18,7 +18,7 @@ header li{ height:32px; line-height:32px; float:left; position:relative;}
 header li>a{ padding:0 15px; float:left; display:block;}
 header li>a:hover{ background:#444;}
 header li>a.on{ background:#555; color:#fff;}
-header li.dent{ width:40px;font-size:15px}
+header li.dent{ width:40px;font-size:15px; -webkit-animation: scaleout 0.8s 3 ease-in-out;animation: scaleout 0.8s 3 ease-in-out;}
 header li.dent>a{ padding:0; width:40px; height:32px; text-align:center; line-height:32px;background:#222; color:#fff;}
 header li div{ width:160px;padding:5px 10px; line-height:22px; background:#555; position:absolute; color:#fff; top:32px;font-size:12px; display:none;box-shadow: 0 3px 5px rgba(0,0,0,.2); z-index:999; text-shadow:0 1px 0 #000;}
 header li div a{ color:#eee;}
@@ -33,10 +33,9 @@ aside h3{ padding:20px 15px 10px 15px; font-size:16px; color:#333; font-weight:n
 aside ul { padding-bottom:10px; border-bottom:1px solid #ccc;}
 aside ul li{}
 aside ul li a{ padding:8px 15px; display:block; color:#333; line-height:18px;}
-aside ul li a:hover{ background:#d8d8d8; color:#222;}
-aside ul li a.on{ background:#cdcdcd; color:#111;}
+aside ul li a:hover{ background:#d3d3d3; color:#222;}
+aside ul li a.on{ background:#c9c9c9; color:#111;}
 section{float:right; background:#f7f7f7;}
-
 @-webkit-keyframes scaleout {
 	0% {
 		-webkit-transform: scale(0.0);
