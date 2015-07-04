@@ -18,6 +18,8 @@ header li{ height:32px; line-height:32px; float:left;}
 header li a{ padding:0 15px; float:left; display:block;}
 header li a:hover{ background:#444;}
 header li a.on{ background:#555; color:#fff;}
+header li.dent{ width:40px;font-size:15px}
+header li.dent a{ padding:0; width:40px; height:32px; text-align:center; line-height:32px;background:#222; color:#fff;}
 nav{ width:40px; float:left;}
 nav a{ width:100%; height:auto!important; display:inline-block; text-align:center; padding:10px 0;}
 nav a i{ width:100%; display:block;font-size:1.2em!important;}
@@ -40,6 +42,7 @@ section{float:right; background:#f7f7f7;}
 <body>
 <header>
 <ul>
+  <li class="dent"><a href="javascript:;" onClick="asides(this);"><i class="fa fa-dedent"></i></a></li>
   <li><a href=""><i class="fa fa-home"></i> QQ体育网</a></li>
   <li><a href=""><i class="fa fa-list-ul"></i> 今日直播</a></li>
   <li><a href=""><i class="fa fa-sitemap"></i> 数据采集</a></li>
@@ -53,7 +56,7 @@ section{float:right; background:#f7f7f7;}
 <a href=""><i class="fa fa-newspaper-o"></i>新闻</a>
 <a href=""><i class="fa fa-folder-open-o"></i>数据</a>
 <a href=""><i class="fa fa-image"></i>图片</a>
-<a href="javascript:;" onClick="asides(this);"><i class="fa fa-dedent"></i>收起</a>
+<!--<a href="javascript:;" onClick="asides(this);"><i class="fa fa-dedent"></i>收起</a>-->
 </nav>
 <aside>
   <h3>赛程</h3>
@@ -71,8 +74,7 @@ section{float:right; background:#f7f7f7;}
     <li><a href=""><i class="fa fa-pencil-square-o"></i> 管理友情链接</a></li>
   </ul>
 </aside>
-<section>
-
+<section><iframe name="mainIframe" src="https://www.baidu.com/s?wd=qqzuqiu" frameborder="false" scrolling="auto" width="100%" height="auto" allowtransparency="true"></iframe>
 </section>
 <div style="clear:both"></div>
 <script>
@@ -84,17 +86,18 @@ function init(){
 	$('aside').css('height', h-32);
 	$('section').css('height', h-32);
 	$('section').css('width', w-180);
+	$('iframe').css('height', h-32);
 }
 function asides(obj){
 	var show = $('aside').width();
 	if(show){
 		$('aside').animate({width: '0px', opacity: 0, marginLeft: '-1px'}, 300);
 		$('section').animate({width: '+=140px'}, 300);
-		$(obj).html('<i class="fa fa-indent"></i>展开');
+		$(obj).html('<i class="fa fa-indent"></i>');
 	} else {
 		$('aside').animate({width: '139px', opacity: 1, marginLeft: '0px'}, 300);
 		$('section').animate({width: '-=140px'}, 300);
-		$(obj).html('<i class="fa fa-dedent"></i>收起');
+		$(obj).html('<i class="fa fa-dedent"></i>');
 	}
 }
 </script>
