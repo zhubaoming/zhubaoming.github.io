@@ -151,9 +151,10 @@ section{float:right; background:#f7f7f7;}
 <div style="clear:both"></div>
 <script>
 init();
-function init(aw){
+function init(){
 	var h = $(window).height();
 	var w = $(window).width();
+	alert(w+' -- '+h);
 	var asideW = $('aside').width();
 	var sectionW = asideW ? (w-180) : (w-40)
 	$('nav').css('height', h-32);
