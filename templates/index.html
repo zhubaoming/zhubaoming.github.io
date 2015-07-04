@@ -131,16 +131,17 @@ section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;}
 <div style="clear:both"></div>
 <script>
 var isAside = 1;
+var winW = $(window).width();
+var winH = $(window).height();
 init();
 function init(){
-	var h = $(window).height();
-	var w = $(window).width();
-	var sectionW = isAside ? (w-180) : (w-40);
-	$('nav').css('height', h-32);
-	$('aside').css('height', h-32);
-	$('section').css('height', h-32);
+	var sectionW = isAside ? (winW-180) : (winW-40);
+	$('nav').css('height', winH-32);
+	$('aside').css('height', winH-32);
+	$('section').css('height', winH-32);
 	$('section').css('width', sectionW);
-	$('iframe').css('height', h-32);
+	$('iframe').css('height', winH-32);
+	headerScroll();
 }
 function asides(obj){
 	if(isAside){
@@ -155,6 +156,14 @@ function asides(obj){
 		isAside = 1;
 	}
 }
+function headerScroll(){
+	if(winW <= 550) {
+		$("header").css('width', 550);
+		$("header").niceScroll({cursoropacitymax:0.3, cursorborder:0, touchbehavior:true, horizrailenabled:true});
+	} else {
+		$("header").css('width', '100%');
+	}
+}
 //顶部导航
 $("header").find("li").each(function() {
 	$(this).hover(function(){
@@ -166,7 +175,11 @@ $("header").find("li").each(function() {
 	});
 });
 $("aside").niceScroll({cursoropacitymax:0.3, cursorborder:0});
-window.onresize=function(){init();}
+window.onresize=function(){
+	winW = $(window).width();
+	winH = $(window).height();
+	init();
+}
 </script>
 </body>
 </html>
