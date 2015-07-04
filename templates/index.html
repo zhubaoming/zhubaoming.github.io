@@ -53,7 +53,7 @@ section{float:right; background:#f7f7f7;}
 <a href=""><i class="fa fa-newspaper-o"></i>新闻</a>
 <a href=""><i class="fa fa-folder-open-o"></i>数据</a>
 <a href=""><i class="fa fa-image"></i>图片</a>
-<a href="javascript:;" onClick="asides();"><i class="fa fa-dedent"></i>收起</a>
+<a href="javascript:;" onClick="asides(this);"><i class="fa fa-dedent"></i>收起</a>
 </nav>
 <aside>
   <h3>赛程</h3>
@@ -85,14 +85,16 @@ function init(){
 	$('section').css('height', h-32);
 	$('section').css('width', w-180);
 }
-function asides(){
+function asides(obj){
 	var show = $('aside').width();
 	if(show){
 		$('aside').animate({width: '0px', opacity: 0, marginLeft: '-1px'}, 300);
 		$('section').animate({width: '+=140px'}, 300);
+		$(obj).html('<i class="fa fa-indent"></i>展开');
 	} else {
 		$('aside').animate({width: '139px', opacity: 1, marginLeft: '0px'}, 300);
 		$('section').animate({width: '-=140px'}, 300);
+		$(obj).html('<i class="fa fa-dedent"></i>收起');
 	}
 }
 </script>
