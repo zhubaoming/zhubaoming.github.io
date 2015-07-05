@@ -152,9 +152,7 @@ function init(){
 	$('section').css('height', winH-32);
 	$('section').css('width', sectionW);
 	$('iframe').css('height', winH-32);
-	if(is_mobile){
-		$('section').css({'-webkit-overflow-scrolling':'touch', 'overflow':'scroll'});
-	}
+	if(is_mobile()) $('section').css({'-webkit-overflow-scrolling':'touch', 'overflow':'scroll'});
 	if(winW < minW){
 		$('li.dent a').html('<i class="fa fa-indent"></i>');
 		$('li.user').html('<a href=""><i class="fa fa-user"></i></a>');
