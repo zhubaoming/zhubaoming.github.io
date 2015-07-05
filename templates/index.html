@@ -36,7 +36,7 @@ aside ul li{}
 aside ul li a{ padding:8px 15px; display:block; color:#333; line-height:18px;}
 aside ul li a:hover{ background:#d3d3d3; color:#222;}
 aside ul li a.on{ background:#c9c9c9; color:#111;}
-section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;-webkit-overflow-scrolling:touch;overflow:auto;}
+section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;}
 @media (max-width: 600px) {
 	header{ overflow:hidden;}
 	header li>a{ padding:0 10px;}
@@ -152,6 +152,9 @@ function init(){
 	$('section').css('height', winH-32);
 	$('section').css('width', sectionW);
 	$('iframe').css('height', winH-32);
+	if(is_mobile){
+		$('section').css({'-webkit-overflow-scrolling':'touch', 'overflow':'scroll'});
+	}
 	if(winW < minW){
 		$('li.dent a').html('<i class="fa fa-indent"></i>');
 		$('li.user').html('<a href=""><i class="fa fa-user"></i></a>');
@@ -174,6 +177,11 @@ function asides(obj){
 		$(obj).html('<i class="fa fa-dedent"></i>');
 		isAside = 1;
 	}
+}
+//判断浏览器客户端
+function is_mobile() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    return /(iphone|ipad|ipod)/i.test(sUserAgent )|| /(Android)/i.test(sUserAgent);
 }
 //顶部导航
 $("header").find("li").each(function() {
