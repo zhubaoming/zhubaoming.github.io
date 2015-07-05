@@ -20,6 +20,7 @@ header li>a:hover{ background:#444;}
 header li>a.on{ background:#555; color:#fff;}
 header li.dent{ width:40px;font-size:15px;}
 header li.dent>a{ padding:0; width:40px; height:32px; text-align:center; line-height:32px;background:#222; color:#fff;}
+header li.user{ float:right;}
 header li div{ width:160px;padding:5px 10px; line-height:22px; background:#555; position:absolute; color:#fff; top:32px;font-size:12px; display:none;box-shadow: 0 3px 5px rgba(0,0,0,.2); z-index:999; text-shadow:0 1px 0 #000;}
 header li div a{ color:#eee;}
 header li div a:hover{ color:#ff0;}
@@ -28,7 +29,7 @@ nav a{ width:100%; height:auto!important; display:inline-block; text-align:cente
 nav a i{ width:100%; display:block;font-size:1.2em!important;}
 nav a:hover{ background:#444;}
 nav a.on{ background:#555; color:#fff;}
-aside{ width:139px; position:fixed; left:40px; top:32px; background:#e1e1e1; font-size:13px; border-right:1px solid #ccc; overflow:hidden; z-index:-1;}
+aside{ width:139px; position:fixed; left:40px; top:32px; background:#e1e1e1; font-size:13px; border-right:1px solid #ccc; overflow:hidden; z-index:777;}
 aside h3{ padding:20px 15px 10px 15px; font-size:16px; color:#333; font-weight:normal;}
 aside ul { padding-bottom:10px; border-bottom:1px solid #ccc;}
 aside ul li{}
@@ -36,13 +37,13 @@ aside ul li a{ padding:8px 15px; display:block; color:#333; line-height:18px;}
 aside ul li a:hover{ background:#d3d3d3; color:#222;}
 aside ul li a.on{ background:#c9c9c9; color:#111;}
 section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;}
-@media (max-width: 550px) {
+@media (max-width: 600px) {
 	header{ overflow:hidden;}
 	header li>a{ padding:0 10px;}
 	
 	nav{ left:-40px;}
 	aside{ left:-180px;}
-	section{ left:0;}
+	section{ left:0; width:100%;}
 }
 </style>
 <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -53,7 +54,7 @@ section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;}
 <body>
 <header>
 <ul>
-  <li style="float:right;"><a href="#"><i class="fa fa-user"></i> 您好，Jewel_M</a>
+  <li class="user"><a href="#"><i class="fa fa-user"></i> 您好，Jewel_M</a>
       <div style="right:0px;">
         <p>上次登录时间：03-23 10:55</p>
         <p>上次登录IP：127.0.0.1</p>
@@ -74,7 +75,6 @@ section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;}
 <a href=""><i class="fa fa-newspaper-o"></i>新闻</a>
 <a href=""><i class="fa fa-folder-open-o"></i>数据</a>
 <a href=""><i class="fa fa-image"></i>图片</a>
-<!--<a href="javascript:;" onClick="asides(this);"><i class="fa fa-dedent"></i>收起</a>-->
 </nav>
 <aside>
   <h3>赛程</h3>
@@ -134,31 +134,43 @@ section{background:#f7f7f7;position:fixed; left:180px; top:32px; z-index:666;}
     <li><a href=""><i class="fa fa-pencil-square-o"></i> 管理友情链接</a></li>
   </ul>
 </aside>
-<section><iframe name="mainIframe" src="" frameborder="false" scrolling="auto" width="100%" height="auto" allowtransparency="true"></iframe>
+<section><iframe name="mainIframe" src="http://www.qqzhibo.net/?m=admin&c=match&a=init" frameborder="false" scrolling="auto" width="100%" height="auto" allowtransparency="true"></iframe>
 </section>
 <div style="clear:both"></div>
 <script>
-var isAside = 1;
 var winW = $(window).width();
 var winH = $(window).height();
+var isAside = 1;
+var minW = 600;
 init();
 function init(){
-	var sectionW = (winW < 550) ? '100%' : (isAside ? (winW-180) : (winW-40));
+	winW = $(window).width();
+	winH = $(window).height();
+	var sectionW = (winW < minW) ? '100%' : (isAside ? (winW-180) : (winW-40));
 	$('nav').css('height', winH-32);
 	$('aside').css('height', winH-32);
 	$('section').css('height', winH-32);
 	$('section').css('width', sectionW);
 	$('iframe').css('height', winH-32);
+	if(winW < minW){
+		$('li.dent a').html('<i class="fa fa-indent"></i>');
+		$('li.user').html('<a href=""><i class="fa fa-user"></i></a>');
+		isAside = 0;
+	}
 }
 function asides(obj){
+	var sectionNW = (winW < minW) ? 180 : 140;
+	var sectionNL = (winW < minW) ? (isAside ? 0 : 180) : (isAside ? 40 : 180);
 	if(isAside){
-		$('aside').animate({left: '-140px', opacity: 0}, 300);
-		$('section').animate({width: '+=140px', left: '40px'}, 200);
+		if(winW < minW) $('nav').animate({left: '-40px', opacity: 0}, 200);
+		$('aside').animate({left: '-180px', opacity: 0}, 300);
+		$('section').animate({width: '+='+sectionNW+'px', left: sectionNL+'px'}, 200);
 		$(obj).html('<i class="fa fa-indent"></i>');
 		isAside = 0;
 	} else {
+		if(winW < minW) $('nav').animate({left: '0px', opacity: 1}, 300);
 		$('aside').animate({left: '40px', opacity: 1}, 200);
-		$('section').animate({width: '-=140px', left: '180px'}, 300);
+		$('section').animate({width: '-='+sectionNW+'px', left: sectionNL+'px'}, 300);
 		$(obj).html('<i class="fa fa-dedent"></i>');
 		isAside = 1;
 	}
@@ -174,11 +186,7 @@ $("header").find("li").each(function() {
 	});
 });
 $("aside").niceScroll({cursoropacitymax:0.3, cursorborder:0});
-window.onresize=function(){
-	winW = $(window).width();
-	winH = $(window).height();
-	init();
-}
+window.onresize = function() { init(); }
 </script>
 </body>
 </html>
