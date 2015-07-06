@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1; maximum-scale=1.0; user-scalable=0">
+<title>QQ体育网 - By Jewel_M</title>
+<style>
+*{ margin:0; padding:0; outline:0; -webkit-font-smoothing:antialiased;}
+body{font-family:arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif; background:#f7f7f7; font-size:16px;}
+.tip-box{margin-top:20%; text-align:center;-webkit-animation:slide-bottom 0.5s;animation:slide-bottom 0.5s; overflow:hidden;}
+.tip-box ul{display:inline-block; padding:10px 15px 6px 15px; line-height:36px; color:#FFF; border-radius:0  8px 8px 0;}
+.tip-box ul li{ float:left; list-style:none;}
+.tip-box ul li.ico{ line-height:normal;}
+.tip-box ul li.ico i{ font-size:36px; padding-right:15px;}
+.tip-box ul li a{ color:#444; font-size:24px; padding-left:15px; text-decoration:none; opacity:0.2; text-shadow:0 1px 0 #fff;}
+.tip-box ul li a:hover{ color:#000;-webkit-animation:spin 0.5s;animation:spin 0.5s;}
+
+.success{border-left:5px solid #8cc474; background:#a0d468;text-shadow:0 1px 0 #8cc474;}
+/*从下往上*/
+@-webkit-keyframes slide-bottom {
+	0% {
+		opacity:0;
+		-webkit-transform:translateY(200px);
+		transform:translateY(200px)
+	} 100% {
+		opacity:1;
+		-webkit-transform:translateY(0);
+		transform:translateY(0)
+	}
+}
+@keyframes slide-bottom {
+	0% {
+		opacity:0;
+		-webkit-transform:translateY(200px);
+		transform:translateY(200px)
+	} 100% {
+		opacity:1;
+		-webkit-transform:translateY(0);
+		transform:translateY(0)
+	}
+}
+/*缩小*/
+@-webkit-keyframes scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(5);
+            transform: scale(5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(5);
+            transform: scale(5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*旋转*/
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+</style>
+<link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="tip-box">
+  <ul class="success">
+    <li class="ico"><i class="fa fa-check-circle"></i></li>
+    <li>恭喜，MVC框架搭建成功！</li>
+    <li><a href="" title="">×</a></li>
+  </ul>
+</div>
+</body>
+</html>
