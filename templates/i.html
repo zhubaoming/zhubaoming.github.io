@@ -145,11 +145,9 @@ init();
 function init(){
 	winW = $(window).width();
 	winH = $(window).height();
-	var sectionW = (winW < minW) ? '100%' : (isAside ? (winW-180) : (winW-40));
 	$('nav').css('height', winH-32);
 	$('aside').css('height', winH-32);
 	$('section').css('height', winH-32);
-	$('section').css('width', sectionW);
 	$('iframe').css('height', winH-32);
 	if(is_mobile()) $('section').css({'-webkit-overflow-scrolling':'touch', 'overflow':'scroll'});
 	if(winW < minW){
@@ -159,18 +157,17 @@ function init(){
 	}
 }
 function asides(obj){
-	var sectionNW = (winW < minW) ? 180 : 140;
 	var sectionNL = (winW < minW) ? (isAside ? 0 : 180) : (isAside ? 40 : 180);
 	if(isAside){
 		if(winW < minW) $('nav').animate({left: '-40px', opacity: 0}, 200);
 		$('aside').animate({left: '-180px', opacity: 0}, 300);
-		$('section').animate({width: '+='+sectionNW+'px', left: sectionNL+'px'}, 200);
+		$('section').animate({marginLeft: sectionNL+'px'}, 200);
 		$(obj).html('<i class="fa fa-indent"></i>');
 		isAside = 0;
 	} else {
 		if(winW < minW) $('nav').animate({left: '0px', opacity: 1}, 300);
 		$('aside').animate({left: '40px', opacity: 1}, 200);
-		$('section').animate({width: '-='+sectionNW+'px', left: sectionNL+'px'}, 300);
+		$('section').animate({marginLeft: sectionNL+'px'}, 300);
 		$(obj).html('<i class="fa fa-dedent"></i>');
 		isAside = 1;
 	}
