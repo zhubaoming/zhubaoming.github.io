@@ -142,6 +142,7 @@ var winW = $(window).width();
 var winH = $(window).height();
 var isAside = 1;
 var minW = 600;
+var userHtml = $('li.user').html();
 init();
 function init(){
 	winW = $(window).width();
@@ -157,6 +158,8 @@ function init(){
 		$('li.dent a').html('<i class="fa fa-indent"></i>');
 		$('li.user').html('<a href=""><i class="fa fa-user"></i></a>');
 		isAside = 0;
+	} else {
+		$('li.user').html(userHtml);
 	}
 }
 function asides(obj){
